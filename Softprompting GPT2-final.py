@@ -29,8 +29,8 @@ def preprocess_data(df):
     df['article'] = df['article'].str.lower().str.replace('[^a-zA-Z0-9 ]', '', regex=True)
     return df
 
-sum_train_df = load_and_sample("C:\\Users\\Venkat\\aadataset\\cnn\\train.csv")
-sum_validation_df = load_and_sample("C:\\Users\\Venkat\\aadataset\\cnn\\train.csv")
+sum_train_df = load_and_sample("train.csv")
+sum_validation_df = load_and_sample("valid.csv")
 
 
 # In[3]:
@@ -53,8 +53,8 @@ def preprocess_qa(data):
                     answers.append(qa['answers'][0]['text'])
     return questions, answers
 
-qa_train_questions, qa_train_answers = preprocess_qa(load_json("C:\\Users\\Venkat\\aadataset\\qa\\train-v2.0.json"))
-qa_validation_questions, qa_validation_answers = preprocess_qa(load_json("C:\\Users\\Venkat\\aadataset\\qa\\dev-v2.0.json"))
+qa_train_questions, qa_train_answers = preprocess_qa(load_json("train-v2.0.json"))
+qa_validation_questions, qa_validation_answers = preprocess_qa(load_json("dev-v2.0.json"))
 
 
 
@@ -67,8 +67,8 @@ def load_text_file(path, frac=0.1):
         lines = file.readlines()
     return [line.strip() for line in lines]
 
-mt_train_de = load_text_file("C:\\Users\\Venkat\\aadataset\\mt\\europarl-v7.de-en.de")
-mt_train_en = load_text_file("C:\\Users\\Venkat\\aadataset\\mt\\europarl-v7.de-en.en")
+mt_train_de = load_text_file("europarl-v7.de-en.de")
+mt_train_en = load_text_file("europarl-v7.de-en.en")
 
 
 # In[5]:
